@@ -1,0 +1,101 @@
+
+# ==============================
+# SECRETOS Y VARIABLES DE ENTORNO
+# ==============================
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Claves y certificados privados
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==============================
+# PYTHON / DJANGO BACKEND
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Archivos de pruebas y cobertura
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================
+# BASES DE DATOS Y RESPALDOS
+# ==============================
+*.sqlite3
+*.sqlite3-*
+*.dump
+*.backup
+*.bak
+*.sql
+*.sql.gz
+*.dump.gz
+
+# ==============================
+# DATOS REALES / EMPRESARIALES
+# ==============================
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.tsv
+
+# Documentos empresariales y exportaciones
+# Revisar antes de incorporar archivos de estos tipos
+*.pdf
+*.docx
+*.doc
+*.zip
+
+# ==============================
+# REACT / TYPESCRIPT / VITE
+# ==============================
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# ==============================
+# EDITORES Y SISTEMA OPERATIVO
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# ARCHIVOS TEMPORALES
+# ==============================
+*.tmp
+*.temp
+*.swp
+*.orig
