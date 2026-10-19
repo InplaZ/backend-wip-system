@@ -9,9 +9,16 @@ from rest_framework.pagination import PageNumberPagination
 from .models import OrdenProducto, MovimientoWIP
 from .serializers import OrdenProductoSerializer, MovimientoWIPSerializer
 from .services import reporte_diario, reporte_por_id
+from rest_framework.permissions import AllowAny
 
 class HealthView(APIView):
-    def get(self, request): return Response({'status':'ok','service':'INPLAZ WIP API'})
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            'status': 'ok',
+            'service': 'INPLAZ WIP API'
+        })
 
 class ProductoSearchView(APIView):
     def get(self, request):

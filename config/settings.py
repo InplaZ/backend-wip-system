@@ -14,9 +14,17 @@ ALLOWED_HOSTS = [
     if x.strip()
 ]
 INSTALLED_APPS = [
-    'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes',
-    'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles',
-    'rest_framework', 'corsheaders', 'wip',
+    'django.contrib.admin', 
+    'django.contrib.auth', 
+    'django.contrib.contenttypes',
+    'django.contrib.sessions', 
+    'django.contrib.messages', 
+    'django.contrib.staticfiles',
+    'rest_framework', 
+    'rest_framework.authtoken',
+    'corsheaders',
+    'wip',
+
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware', 'corsheaders.middleware.CorsMiddleware',
@@ -37,8 +45,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [x.strip() for x in os.getenv('CORS_ALLOWED_ORIGINS','http://localhost:5173,http://192.168.0.00:5173').split(',') if x.strip()]
 REST_FRAMEWORK = {
- 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny'],
- 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
- 'PAGE_SIZE': 25,
- 'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 25,
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
 }
